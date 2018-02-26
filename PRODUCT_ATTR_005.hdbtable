@@ -1,0 +1,13 @@
+table.schemaName = "GBI_005";
+table.tableType = COLUMNSTORE;
+table.columns = [
+{name = "PRODUCT"; sqlType = NVARCHAR; length = 8; },
+{name = "PRODUCT_NAME"; sqlType = NVARCHAR; length = 40; },
+{name = "PRODUCT_CATEGORY"; sqlType = NVARCHAR; length = 3; },
+{name = "DIVISION"; sqlType = NVARCHAR; length = 2; },
+{name = "INTERNAL_PRICE"; sqlType = DECIMAL; precision = 17; scale = 2; },
+{name = "PRICE"; sqlType = DECIMAL; precision = 17; scale = 2; },
+{name = "COLOR"; sqlType = NVARCHAR; length = 10; },
+{name = "PRODUCT_GROUP"; sqlType = NVARCHAR; length = 20; }
+];
+table.primaryKey.pkcolumns = ["PRODUCT"];

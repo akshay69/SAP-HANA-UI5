@@ -1,0 +1,9 @@
+<!-- this is a comment. in the next tag, the xmlns tags define namespaces, the name after of the equality signs being the name of the namespace. In the code below, we can use this name instead of the full path -->
+<mvc:View controllerName="content.Main"
+xmlns:mvc="sap.ui.core.mvc"
+xmlns="sap.m">
+<!-- view content goes here -->
+<!-- this control creates a button that calls the function
+changeText when pressed -->
+<Button id="mybutton" text="Hello World" press="changeText"/>
+</mvc:View>

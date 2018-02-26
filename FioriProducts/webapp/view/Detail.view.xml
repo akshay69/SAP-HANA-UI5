@@ -1,0 +1,68 @@
+<mvc:View controllerName="products.controller.Detail"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:footerbar="sap.ushell.ui.footerbar">
+	<Page id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}" busy="{detailView>/busy}"
+		busyIndicatorDelay="{detailView>/delay}">
+		<content>
+			<ObjectHeader id="objectHeader" title="{PRODUCT_NAME}" number="{ path: 'PRICE', formatter: '.formatter.currencyValue' }"></ObjectHeader>
+			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://hint" tooltip="{i18n>detailIconTabBarInfo}">
+						<content>
+							<List
+id="productDetail">
+								<CustomListItem>
+									<HBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+										<Text text="{i18n>product}: {PRODUCT} " />
+									</HBox>
+								</CustomListItem>
+								<CustomListItem>
+									<HBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+										<Text text="{i18n>product_category}: {PRODUCT_CATEGORY} " />
+									</HBox>
+								</CustomListItem>
+								<CustomListItem>
+									<HBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+										<Text text="{i18n>devision}: {DEVISION} " />
+									</HBox>
+								</CustomListItem>
+								<CustomListItem>
+									<HBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+										<Text text="{i18n>internal_price}: {INTERNAL_PRICE} " />
+									</HBox>
+								</CustomListItem>
+								<CustomListItem>
+									<HBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+										<Text text="{i18n>color}: {COLOR} " />
+									</HBox>
+								</CustomListItem>
+								<CustomListItem>
+									<HBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+										<Text text="{i18n>product_group}: {PRODUCT_GROUP} " />
+									</HBox>
+								</CustomListItem>
+							</List>
+						</content>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</content>
+		<footer>
+			<OverflowToolbar id="footerToolbar">
+				<ToolbarSpacer/>
+				<Button id="shareButton" tooltip="{i18n>shareTooltip}" icon="sap-icon://action" press="onSharePress">
+					<dependents>
+						<ActionSheet id="shareSheet" showCancelButton="true" placement="Top">
+							<buttons>
+								<Button id="shareEmail" icon="sap-icon://email" text="{i18n>shareSendEmail}" press="onShareEmailPress"/>
+								<Button id="shareInJam" icon="sap-icon://jam" text="{i18n>shareOnJamTitle}" press="onShareInJamPress" visible="{FLP>/isShareInJamActive}"/>
+								<footerbar:AddBookmarkButton id="shareTile" appData="{ path: 'detailView>/saveAsTileTitle', formatter: '.formatter.shareTileData' }"/>
+							</buttons>
+						</ActionSheet>
+					</dependents>
+				</Button>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

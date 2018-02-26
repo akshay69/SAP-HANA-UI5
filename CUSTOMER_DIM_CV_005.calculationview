@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CUSTOMER_DIM_CV_005" applyPrivilegeType="ANALYTIC_PRIVILEGE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="2.3" defaultClient="$$client$$" visibility="internal" outputViewType="Projection" calculationScenarioType="TREE_BASED" enforceSqlExecution="false">
+<descriptions defaultDescription="CUSTOMER 005"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="gbi-student-005::CUSTOMER_ATTR_005" type="DATA_BASE_TABLE">
+    <viewAttributes allViewAttributes="true"/>
+    <columnObject schemaName="GBI_005" columnObjectName="gbi-student-005::CUSTOMER_ATTR_005"/>
+  </DataSource>
+  <DataSource id="GBI_DEMO_COUNTRY" type="DATA_BASE_TABLE">
+    <viewAttributes allViewAttributes="true"/>
+    <columnObject schemaName="GBI_DEMO" columnObjectName="GBI_DEMO_COUNTRY"/>
+  </DataSource>
+  <DataSource id="GBI_DEMO_SALESORG" type="DATA_BASE_TABLE">
+    <viewAttributes allViewAttributes="true"/>
+    <columnObject schemaName="GBI_DEMO" columnObjectName="GBI_DEMO_SALESORG"/>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1" filterExpressionLanguage="COLUMN_ENGINE">
+    <viewAttributes>
+      <viewAttribute id="CITY"/>
+      <viewAttribute id="COUNTRY"/>
+      <viewAttribute id="CUSTOMER_NAME"/>
+      <viewAttribute id="CUSTOMER_NUMBER"/>
+      <viewAttribute id="SALES_ORGANIZATION"/>
+      <viewAttribute id="VALID_TO"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="#gbi-student-005::CUSTOMER_ATTR_005">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CITY" source="CITY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTRY" source="COUNTRY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CUSTOMER_NAME" source="CUSTOMER_NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CUSTOMER_NUMBER" source="CUSTOMER_NUMBER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALES_ORGANIZATION" source="SALES_ORGANIZATION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VALID_TO" source="VALID_TO"/>
+    </input>
+    <filter>&quot;VALID_TO&quot;=99991231</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinType="textTable" cardinality="C1_1" languageColumn="LANGU">
+    <viewAttributes>
+      <viewAttribute id="CITY"/>
+      <viewAttribute id="COUNTRY"/>
+      <viewAttribute id="CUSTOMER_NAME"/>
+      <viewAttribute id="CUSTOMER_NUMBER"/>
+      <viewAttribute id="SALES_ORGANIZATION"/>
+      <viewAttribute id="VALID_TO"/>
+      <viewAttribute id="SHORT_TEXT_COUNTRY"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="#Projection_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CITY" source="CITY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTRY" source="COUNTRY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CUSTOMER_NAME" source="CUSTOMER_NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CUSTOMER_NUMBER" source="CUSTOMER_NUMBER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALES_ORGANIZATION" source="SALES_ORGANIZATION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VALID_TO" source="VALID_TO"/>
+    </input>
+    <input node="#GBI_DEMO_COUNTRY">
+      <mapping xsi:type="Calculation:AttributeMapping" target="SHORT_TEXT_COUNTRY" source="SHORT TEXT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTRY" source="COUNTRY"/>
+    </input>
+    <joinAttribute name="COUNTRY"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_2" joinType="textTable" cardinality="C1_1" languageColumn="LANGU">
+    <viewAttributes>
+      <viewAttribute id="CITY"/>
+      <viewAttribute id="COUNTRY"/>
+      <viewAttribute id="CUSTOMER_NAME"/>
+      <viewAttribute id="CUSTOMER_NUMBER"/>
+      <viewAttribute id="SALES_ORGANIZATION"/>
+      <viewAttribute id="SHORT_TEXT_COUNTRY"/>
+      <viewAttribute id="SHORT_TEXT_SALESORG"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="#Join_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CITY" source="CITY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTRY" source="COUNTRY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CUSTOMER_NAME" source="CUSTOMER_NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CUSTOMER_NUMBER" source="CUSTOMER_NUMBER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALES_ORGANIZATION" source="SALES_ORGANIZATION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SHORT_TEXT_COUNTRY" source="SHORT_TEXT_COUNTRY"/>
+    </input>
+    <input node="#GBI_DEMO_SALESORG">
+      <mapping xsi:type="Calculation:AttributeMapping" target="SHORT_TEXT_SALESORG" source="SHORT_TEXT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALES_ORGANIZATION" source="SALES_ORGANISATION"/>
+    </input>
+    <joinAttribute name="SALES_ORGANIZATION"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_2">
+  <attributes>
+    <attribute id="CITY" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CITY"/>
+      <keyMapping columnObjectName="Join_2" columnName="CITY"/>
+    </attribute>
+    <attribute id="COUNTRY" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SHORT_TEXT_COUNTRY"/>
+      <keyMapping columnObjectName="Join_2" columnName="COUNTRY"/>
+    </attribute>
+    <attribute id="CUSTOMER_NAME" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CUSTOMER_NAME"/>
+      <keyMapping columnObjectName="Join_2" columnName="CUSTOMER_NAME"/>
+    </attribute>
+    <attribute id="CUSTOMER_NUMBER" key="true" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CUSTOMER_NUMBER"/>
+      <keyMapping columnObjectName="Join_2" columnName="CUSTOMER_NUMBER"/>
+    </attribute>
+    <attribute id="SALES_ORGANIZATION" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SHORT_TEXT_SALESORG"/>
+      <keyMapping columnObjectName="Join_2" columnName="SALES_ORGANIZATION"/>
+    </attribute>
+    <attribute id="SHORT_TEXT_COUNTRY" hidden="true" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SHORT_TEXT_COUNTRY"/>
+      <keyMapping columnObjectName="Join_2" columnName="SHORT_TEXT_COUNTRY"/>
+    </attribute>
+    <attribute id="SHORT_TEXT_SALESORG" hidden="true" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SHORT_TEXT_SALESORG"/>
+      <keyMapping columnObjectName="Join_2" columnName="SHORT_TEXT_SALESORG"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="86" y="226"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="86" y="384"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="82" y="522"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario> 

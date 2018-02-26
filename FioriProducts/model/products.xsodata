@@ -1,0 +1,3 @@
+service {
+	"GBI_DEMO"."GBI_DEMO_PRODUCT" as "Products";
+}

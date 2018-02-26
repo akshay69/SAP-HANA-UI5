@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flowgraph:ContainerNode xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:flowgraph="http://www.sap.com/ndb/flowgraph/1.0" xmi:id="7dea88e1ddc8a191ca28def6f303ee21" name="CustomerFlow" runtimeBehavior="BATCH_TASK" targetSchema="GBI_005">
+  <annotations xmi:id="feb4c6c73a10972efad524e2fc0f7fcc" key="sap.afm.layout">
+    <annotations xmi:id="8ecaa73d7938a4fb9515a9d259467859" key="x" value="10">
+    </annotations>
+    <annotations xmi:id="b8b803c5ce1cb8cb63c06f65b338c320" key="y" value="10">
+    </annotations>
+    <annotations xmi:id="9082435448ca0caabb3b8a5379abc86c" key="width" value="100">
+    </annotations>
+    <annotations xmi:id="a437504eb1f7d7889f314718f0a3610a" key="height" value="84">
+    </annotations>
+  </annotations>
+  <annotations xmi:id="5c973de97714a1ecf79d2bbc90337c46" key="sap.afm.palette">
+    <annotations xmi:id="88a369b3a79f133f9c9e9ce3a51636f8" key="additions" value="">
+    </annotations>
+  </annotations>
+  <annotations xmi:id="fc7fd9ea6c35ea6bbfd12c8fb476ddaa" key="sap.afm.nodeType" value="ContainerNode">
+  </annotations>
+  <annotations xmi:id="fae708cf3163bdc5f7f5b42e89104b7e" key="sap.afm.nodeInputs">
+    <annotations/>
+  </annotations>
+  <annotations xmi:id="64293d92e0c803b3b9e66055b9772413" key="sap.afm.nodeOutputs">
+    <annotations/>
+  </annotations>
+  <nodes xsi:type="flowgraph:DataNode" xmi:id="58e0d5fe3a6159a382c5d58009ed24e0" name="_VT_Customer_005_csv_" type="VIRTUAL_TABLE" authoringSchemaName="GBI_005" catalogObjectName=" VT_Customer_005.csv " dataLayout="COLUMN" truncateTable="false">
+    <annotations xmi:id="853e0e00ea6019b00609ba8f8835bfb7" key="sap.afm.description" value="">
+    </annotations>
+    <annotations xmi:id="2c70643eba243d1b882bdccd605c2a17" key="sap.afm.displayName" value="Data Source">
+    </annotations>
+    <annotations xmi:id="c90748e02790e3a5f40c878b327091c2" key="sap.afm.layout">
+      <annotations xmi:id="30d641e2245c34e758eaa0b6abb26825" key="x" value="175">
+      </annotations>
+      <annotations xmi:id="1c3f7214d58a64df247ad22f2b1879d8" key="y" value="103">
+      </annotations>
+      <annotations xmi:id="e29fd2a7e42099c14dd2c59a2c110fcb" key="width" value="100">
+      </annotations>
+      <annotations xmi:id="a115b0147f507b5ba41ef3763777a992" key="height" value="84">
+      </annotations>
+    </annotations>
+    <annotations xmi:id="79aa00f1e4c5fb6b0c2889654055f6e3" key="sap.afm.nodeType" value="DataNode">
+    </annotations>
+    <annotations xmi:id="ecf23e072653dd2f3ee1671c0ea21c6b" key="sap.afm.nodeInputs">
+    </annotations>
+    <annotations xmi:id="ac8068663a787af4bf7e31b875a72446" key="sap.afm.nodeOutputs">
+      <annotations xmi:id="8eb7388e441da1477c006df64c8bdf37" key="_VT_Customer_005_csv__Output" value="gbi_student_005__CUSTOMER_ATTR_005_Input">
+      </annotations>
+    </annotations>
+    <outputs name="_VT_Customer_005_csv__Output" kind="TABLE" xmi:id="52d2dae9abca4115052cbac4d376fec9">
+      <attributes xmi:id="9812882e5f6f0cc51f01a195ee83f348" name="PATH" type="NVARCHAR" length="1024" scale="0" nullable="false">
+        <annotations xmi:id="47d5794657341dac360c18c2508db0cc" key="sap.im.primaryKey" value="true">
+        </annotations>
+      </attributes>
+      <attributes xmi:id="04f681936dd9d7c3f442ccc53b20e110" name="NAME" type="NVARCHAR" length="1024" scale="0" nullable="false">
+        <annotations xmi:id="7f0b1b5a304f7c443cf6f7c5816bf1eb" key="sap.im.primaryKey" value="true">
+        </annotations>
+      </attributes>
+      <attributes xmi:id="1c368416a534fd2f39ab309beaaad420" name="ROWNUMBER" type="BIGINT" length="0" scale="0" nullable="false">
+        <annotations xmi:id="aebb50cdf7f69cc8fa4c6ea8ef67d5e4" key="sap.im.primaryKey" value="true">
+        </annotations>
+      </attributes>
+      <attributes xmi:id="76ef19e3f998b6d5567863435bc82f05" name="ERROR" type="NVARCHAR" length="1024" scale="0" nullable="true">
+      </attributes>
+      <attributes xmi:id="e2ce1d8b69faaf50ad8ba86bba5819c2" name="PARTITION" type="INTEGER" length="0" scale="0" nullable="true">
+      </attributes>
+      <attributes xmi:id="f5de3d46c19979cb67b5ddf8fdec83e1" name="CustomerNumber" type="NVARCHAR" length="10" scale="0" nullable="true">
+      </attributes>
+      <attributes xmi:id="20711ed81860d3ec72f16ab045fabceb" name="CustomerName" type="NVARCHAR" length="20" scale="0" nullable="true">
+      </attributes>
+      <attributes xmi:id="e375da4bbf681b17c56bb515b9564d40" name="Street" type="NVARCHAR" length="35" scale="0" nullable="true">
+      </attributes>
+      <attributes xmi:id="ce406c475dd5ab1e3df50b12dbf2a031" name="Postcode" type="NVARCHAR" length="5" scale="0" nullable="true">
+      </attributes>
+      <attributes xmi:id="469045206076e37090950bb3e1c5eebc" name="City" type="NVARCHAR" length="35" scale="0" nullable="true">
+      </attributes>
+      <attributes xmi:id="60a4dce25ee767142a0e448eca626d38" name="ValidTo" type="DATE" length="0" scale="0" nullable="true">
+      </attributes>
+      <attributes xmi:id="49712f47120032a0bd3a670d5c3e63d1" name="ValidFrom" type="DATE" length="0" scale="0" nullable="true">
+      </attributes>
+      <attributes xmi:id="1bbacb735dbebfdb07baa9c4585de7b3" name="SalesOrganisation" type="NVARCHAR" length="4" scale="0" nullable="true">
+      </attributes>
+      <attributes xmi:id="90006e3e95c819b3c8955a48b524500e" name="Country" type="NVARCHAR" length="2" scale="0" nullable="true">
+      </attributes>
+    </outputs>
+  </nodes>
+  <nodes xsi:type="flowgraph:DataNode" xmi:id="8824ef05e7d932542050da2cefa87664" name="gbi_student_005__CUSTOMER_ATTR_005" type="DATABASE_TABLE" authoringSchemaName="GBI_005" catalogObjectName="gbi-student-005::CUSTOMER_ATTR_005" dataLayout="COLUMN" truncateTable="false">
+    <annotations xmi:id="4dc5cf0903c237b0a18926e9bde7d932" key="sap.afm.layout">
+      <annotations xmi:id="2c2313793f2a8c752868a630116e7b8b" key="x" value="493">
+      </annotations>
+      <annotations xmi:id="2c382eaa77f3b145f0715a8f2e66ab42" key="y" value="103">
+      </annotations>
+      <annotations xmi:id="f650cfa1f6d9c6e104dfe3d4a1b9e4b2" key="width" value="100">
+      </annotations>
+      <annotations xmi:id="5ce9a5d1817c6127da2e1c71065f2ea0" key="height" value="84">
+      </annotations>
+    </annotations>
+    <annotations xmi:id="75501818e8eed7fcb01478d35d96e2f1" key="sap.afm.nodeType" value="DataNode">
+    </annotations>
+    <annotations xmi:id="f40f74f0d769d457afe15be7a352aea0" key="sap.afm.nodeInputs">
+      <annotations xmi:id="94e8a31639f9ccfae75d4ea42240388e" key="gbi_student_005__CUSTOMER_ATTR_005_Input" value="_VT_Customer_005_csv__Output">
+      </annotations>
+    </annotations>
+    <annotations xmi:id="f2c15796c1c994683a37899792c452ca" key="sap.afm.nodeOutputs">
+    </annotations>
+    <annotations xmi:id="cb0556bb7a32541268e474619aa884cf" key="sap.im.historyTable" value="">
+    </annotations>
+    <inputs name="gbi_student_005__CUSTOMER_ATTR_005_Input" kind="TABLE" xmi:id="8feac6fc0de9219bcd05ab45a4de5cb1">
+      <attributes xmi:id="dd9e6023f45f110aa58b808af92dd8d3" name="CUSTOMER_NUMBER" type="NVARCHAR" length="10" scale="0" nullable="false">
+        <annotations xmi:id="4425fa107d8c7720dedff1023a304a47" key="sap.im.primaryKey" value="true">
+        </annotations>
+      </attributes>
+      <attributes xmi:id="d92e927b63360e17b1c95da1c2f60e94" name="CUSTOMER_NAME" type="NVARCHAR" length="20" scale="0" nullable="true">
+      </attributes>
+      <attributes xmi:id="70dadae760284cdfd4cf27ae312b3720" name="CITY" type="NVARCHAR" length="35" scale="0" nullable="true">
+      </attributes>
+      <attributes xmi:id="b84dbff89dcc506caca66f48ae6c8e88" name="VALID_TO" type="DATE" length="0" scale="0" nullable="false">
+        <annotations xmi:id="644adc117462ce90cadbf9705f9e7467" key="sap.im.primaryKey" value="true">
+        </annotations>
+      </attributes>
+      <attributes xmi:id="b967b7fe6555faa7010014ac4a6bb3a6" name="VALID_FROM" type="DATE" length="0" scale="0" nullable="true">
+      </attributes>
+      <attributes xmi:id="a0b6a8fd150ec1a333d697d2e83aed0a" name="SALES_ORGANIZATION" type="NVARCHAR" length="4" scale="0" nullable="true">
+      </attributes>
+      <attributes xmi:id="b7740fa3cbced1414237a8a0fc44ea46" name="COUNTRY" type="NVARCHAR" length="2" scale="0" nullable="true">
+      </attributes>
+    </inputs>
+  </nodes>
+  <tableMappings xmi:id="aaf5e6812d17e6b1cb3398ae2ee3b6b6" source="52d2dae9abca4115052cbac4d376fec9" target="8feac6fc0de9219bcd05ab45a4de5cb1">
+    <attributeMappings source="f5de3d46c19979cb67b5ddf8fdec83e1" target="dd9e6023f45f110aa58b808af92dd8d3" xmi:id="d01678b5665ccb8376c3a8724a2f06f8">
+    </attributeMappings>
+    <attributeMappings source="20711ed81860d3ec72f16ab045fabceb" target="d92e927b63360e17b1c95da1c2f60e94" xmi:id="dc942b4287906a0ed2aa7ee1ca4f06b9">
+    </attributeMappings>
+    <attributeMappings source="469045206076e37090950bb3e1c5eebc" target="70dadae760284cdfd4cf27ae312b3720" xmi:id="72aeeab599671b870c33da3ba87fb715">
+    </attributeMappings>
+    <attributeMappings source="60a4dce25ee767142a0e448eca626d38" target="b84dbff89dcc506caca66f48ae6c8e88" xmi:id="914c3c9e4c8d37bc3993d9781b95ae1f">
+    </attributeMappings>
+    <attributeMappings source="49712f47120032a0bd3a670d5c3e63d1" target="b967b7fe6555faa7010014ac4a6bb3a6" xmi:id="7a8abdc06428185825b4e3d4c4dd2089">
+    </attributeMappings>
+    <attributeMappings source="1bbacb735dbebfdb07baa9c4585de7b3" target="a0b6a8fd150ec1a333d697d2e83aed0a" xmi:id="ec6404997d9c5add85a1efc23fef9b69">
+    </attributeMappings>
+    <attributeMappings source="90006e3e95c819b3c8955a48b524500e" target="b7740fa3cbced1414237a8a0fc44ea46" xmi:id="d6f397ce478222dcdf61eaad1c6f0153">
+    </attributeMappings>
+  </tableMappings>
+</flowgraph:ContainerNode>
